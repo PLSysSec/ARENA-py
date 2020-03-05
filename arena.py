@@ -324,6 +324,14 @@ class Object:
             self.parent = parent
         self.redraw()
 
+    def update_video(self, **kwargs):
+        client.publish(scene_path, json.dumps({
+            "object_id": self.objName,
+            "action": "update",
+            "type": "video",
+            "data": kwargs
+        }), retain=False)
+
     #    def __del__(self):
     #        self.delete()
 
