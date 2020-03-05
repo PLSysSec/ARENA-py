@@ -1,6 +1,9 @@
 import arena
 import json
 
+# Have https://arena-west1.conix.io/?scene=synchvideo
+# open before running this script
+
 def callback(msg):
     jsonMsg = json.loads(msg)
     if jsonMsg["action"] != "clientEvent":
