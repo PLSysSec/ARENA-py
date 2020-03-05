@@ -12,14 +12,13 @@ def callback(msg):
         print(jsonMsg["type"])
 
 def createVideo():
-    arena.Object(
+    return arena.Object(
         objName = "videoscreen",
         objType = arena.Shape.cube,
         scale = (16, 9, 0.1),
         location = (0, 5, -15),
         data = '{"material": {"src": "images/360falls.mp4"}}',
         clickable = True,
-        persist = True,
     )
 
 arena.init(
