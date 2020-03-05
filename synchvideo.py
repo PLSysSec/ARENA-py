@@ -11,6 +11,17 @@ def callback(msg):
     if jsonMsg["object_id"] == "videoscreen":
         print(jsonMsg["type"])
 
+def createVideo():
+    arena.Object(
+        objName = "videoscreen",
+        objType = arena.Shape.cube,
+        scale = (16, 9, 0.1),
+        location = (0, 5, -15),
+        data = '{"material": {"src": "images/360falls.mp4"}}',
+        clickable = True,
+        persist = True,
+    )
+
 arena.init(
     "arena-west1.conix.io",
     "realm",
@@ -18,12 +29,5 @@ arena.init(
     port = 3003,
     callback = callback,
 )
-arena.Object(
-    objName = "videoscreen",
-    objType = arena.Shape.cube,
-    scale = (16, 9, 0.1),
-    location = (0, 5, -15),
-    data = '{"material": {"src": "images/360falls.mp4"}}',
-    clickable = True,
-)
+createVideo()
 arena.handle_events()
