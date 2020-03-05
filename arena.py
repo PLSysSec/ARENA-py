@@ -330,7 +330,7 @@ class Object:
             "action": "update",
             "type": "video",
             "data": kwargs
-        }), retain=False)
+        }), retain=False, qos=0)
 
     #    def __del__(self):
     #        self.delete()
