@@ -6,10 +6,12 @@ import json
 
 def callback(msg):
     jsonMsg = json.loads(msg)
-    if jsonMsg["action"] != "clientEvent":
-        return
-    if jsonMsg["object_id"] == "videoscreen":
-        print(jsonMsg["type"])
+    if jsonMsg["action"] == "clientEvent":
+        if jsonMsg["object_id"] == "videoscreen":
+            print(jsonMsg["type"])
+    if jsonMsg["action"] == "create":
+        if jsonMsg["object_id"][:6] == "camera":
+            print("a new viewer joined")
 
 def createVideo():
     return arena.Object(
